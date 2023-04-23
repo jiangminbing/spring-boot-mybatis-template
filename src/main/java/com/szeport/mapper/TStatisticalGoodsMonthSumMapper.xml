@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szeport.mapper.TStatisticalGoodsMonthSumMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.szeport.entity.TStatisticalGoodsMonthSum">
+        <id column="SEQ_NO" property="seqNo" />
+        <result column="CODE_SCC" property="codeScc" />
+        <result column="TRADE_CODE" property="tradeCode" />
+        <result column="IE_FLAG" property="ieFlag" />
+        <result column="CODE_TS" property="codeTs" />
+        <result column="TRADE_MARKET" property="tradeMarket" />
+        <result column="TRADE_MODE" property="tradeMode" />
+        <result column="AMOUNT_RMB" property="amountRmb" />
+        <result column="AMOUNT_USD" property="amountUsd" />
+        <result column="STAT_DATE" property="statDate" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="CRE_DATE" property="creDate" />
+        <result column="DISTRICT" property="district" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        SEQ_NO, CODE_SCC, TRADE_CODE, IE_FLAG, CODE_TS, TRADE_MARKET, TRADE_MODE, AMOUNT_RMB, AMOUNT_USD, STAT_DATE, CREATE_TIME, CRE_DATE, DISTRICT
+    </sql>
+
+</mapper>
