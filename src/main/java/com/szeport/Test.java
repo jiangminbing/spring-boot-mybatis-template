@@ -23,7 +23,7 @@ public class Test {
         String projectPath = System.getProperty("user.dir");
         // 全局配置
         GlobalConfig gc = GeneratorBuilder.globalConfigBuilder()
-                .fileOverride().openDir(false)
+                .fileOverride()
                 .outputDir(projectPath + JAVA_PATH)
                 .author(AUTHOR)
                 .enableSwagger()
@@ -31,9 +31,9 @@ public class Test {
                 .build();
 
         // 数据源配置
-        DataSourceConfig dsc = new DataSourceConfig.Builder("jdbc:clickhouse://192.168.1.171:8123",
+        DataSourceConfig dsc = new DataSourceConfig.Builder("jdbc:clickhouse://192.168.1.171:8123/macro_data_dev",
                 "develop", "develop")
-                .dbQuery(new ClickHouseQuery()).schema("macro_data_dev").build();
+                .dbQuery(new ClickHouseQuery()).schema("T_STATISTICAL_GOODS_MONTH_SUM").build();
 
         // 包配置
         PackageConfig pc = GeneratorBuilder.packageConfigBuilder().parent("com.szeport").build();
@@ -63,7 +63,7 @@ public class Test {
 
 
         // 代码生成器
-        AutoGenerator mpg = new AutoGenerator(dsc).global(gc).strategy(strategy).template(templateConfig).packageInfo(pc).injection();
+        AutoGenerator mpg = new AutoGenerator(dsc).global(gc).strategy(strategy).template(templateConfig).packageInfo(pc);
 
         mpg.execute(new FreemarkerTemplateEngine());
 
